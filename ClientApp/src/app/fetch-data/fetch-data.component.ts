@@ -6,18 +6,27 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
+    public Article: Article;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'HarryVu').subscribe(result => {
-      this.forecasts = result;
+
+    constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+        http.get<Article>(baseUrl + 'Article/1').subscribe(result => {
+      this.Article = result;
     }, error => console.error(error));
-  }
+    }
+
+    log() {
+        console.log(this.Article)
+    }
+
+    
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+
+
+interface Article {
+    Id: number,
+    Title: string,
+    Content: string,
+    Author: string
 }
