@@ -18,15 +18,13 @@ export class FetchDataComponent {
     log() {
         console.log(this.Article)
     }
-
-    
 }
 
 
 
 interface Article {
-    Id: number,
-    Title: string,
-    Content: string,
-    Author: string
+    Id: number;
+    Title: string;
+    Content: string;
+    Author: string;
 }
